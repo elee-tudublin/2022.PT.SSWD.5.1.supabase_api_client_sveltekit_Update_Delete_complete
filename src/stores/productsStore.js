@@ -99,7 +99,7 @@ export const addNewProduct = async (new_product) => {
 	}
 
 	// return inserted product
-	return data;
+	return data[0];
 };
 
 // To do - delete an existing product by id
@@ -143,7 +143,7 @@ export const updateProduct = async (up_product) => {
 	}
 
 	// return updated product
-	return data;
+	return data[0];
 };
 
 // initialise the store

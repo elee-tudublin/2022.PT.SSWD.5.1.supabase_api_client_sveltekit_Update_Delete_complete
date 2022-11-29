@@ -62,9 +62,9 @@ export const actions = {
           success: true,
           // The following annotation is to ignore TypeScript Syntax errors detected by ESLint and the Svelte VS Code extensions
           // @ts-ignore
-          message: `New product added with id: ${result[0].id}`,
+          message: `New product added with id: ${result.id}`,
           // @ts-ignore
-          product: result[0]
+          product: result
         };
         // If va;idation failed
         // Return a response with Status 400
