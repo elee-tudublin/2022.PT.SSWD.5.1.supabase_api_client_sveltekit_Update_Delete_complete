@@ -3,7 +3,8 @@
 		products,
 		categories,
 		getAllProducts,
-		getProductsByCat
+		getProductsByCat,
+		deleteProductById
 	} from '../stores/productsStore.js';
 
 	// filtered is subscribed to the $products store
@@ -61,8 +62,16 @@
 		});
 	};
 
-	const deleteProduct = (id = 0) => {
+	// Delete a product by id
+	const deleteProduct = async (id = 0) => {
+		if (confirm(`Permanently deleteing product with ID= ${id}\n\nAre you sure?`)) {
 
+			// call the store function if user confirms
+			const result = await deleteProductById(id);
+
+			// log the result
+			console.log('delete result: ', result);
+		}
 	}
 
 </script>

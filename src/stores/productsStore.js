@@ -105,9 +105,19 @@ export const addNewProduct = async (new_product) => {
 // To do - delete an existing product by id
 // id set to 0 by default
 export const deleteProductById = async (id = 0) => {
+
+	// verify param and delete
 	if (id > 0) {
-		// To do:
-		// Call the Supabase API to delete product with matching id
+		const { data, error } = await supabase.from('product').delete().eq('id', id);
+
+		if (error) {
+			return console.error(error);
+		}
+
+		// refresh product store
+		getAllProducts();
+
+		return data;
 	}
 };
 
